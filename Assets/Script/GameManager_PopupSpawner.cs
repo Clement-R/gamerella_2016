@@ -7,22 +7,30 @@ public class GameManager_PopupSpawner : MonoBehaviour {
     public float timeBetweenSpawn = 2.0f;
     public GameObject []popups;
     public int activePopup = 0;
-
+    
     private List<GameObject> openPopups = new List<GameObject>();
+    // BEST HACK EU
+    private int z = -5;
 
-	void Start () {
+    void Start () {
         StartCoroutine("Spawn");
 	}
 	
     IEnumerator Spawn() {
         // TODO : Choose random popup
+
         float width = popups[0].GetComponent<Renderer>().bounds.size.x;
         float height = popups[0].GetComponent<Renderer>().bounds.size.y;
 
-        GameObject popup = Instantiate(popups[0], new Vector3(width / 2, -height / 2, -5), Quaternion.identity) as GameObject;
+        float x = Random.Range(width / 2, 12.8f - (width / 2));
+        float y = Random.Range(-(height / 2), -7.2f + (height / 2));
+
+        GameObject popup = Instantiate(popups[0], new Vector3(x, y, this.z), Quaternion.identity) as GameObject;
+
         activePopup = popup.GetInstanceID();
-    Debug.Log(activePopup);
         openPopups.Add(popup);
+        // Decreaze Z
+        z -= 1;
 
         yield return new WaitForSeconds(timeBetweenSpawn);
         StartCoroutine("Spawn");

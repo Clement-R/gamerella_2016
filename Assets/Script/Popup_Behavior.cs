@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Popup_Behavior : MonoBehaviour {
 
+    public bool isActive = false;
+    public bool isFinished = false;
     private GameManager_PopupSpawner god;
 
     void Start() {
@@ -10,11 +12,14 @@ public class Popup_Behavior : MonoBehaviour {
     }
 
 	void Update () {
-        Debug.Log("THIS : " + this.GetInstanceID());
-        Debug.Log("ACTIVE : " + god.activePopup);
+	    if(god.activePopup == this.gameObject.GetInstanceID()) {
+            isActive = true;
+        } else {
+            isActive = false;
+        }
 
-	    if(god.activePopup == this.GetInstanceID()) {
-            Debug.Log("I'm alive !");
+        if(isActive && isFinished) {
+            Destroy(this.gameObject);
         }
 	}
 }
