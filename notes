@@ -1,9 +1,14 @@
 TODO :
-	- Passe sur popup précédente quand la plus récente est supprimée
-	- Condition victoire/défaite
+	- Simuler dégradation site quand il y a de + en + de popups
+	- Affichage image game over
+	- Condition victoire
 	- Temps de spwan changeant suivant la popup qui vient d'arriver
-	- Récupération popup random
 
 DONE !
 	- Popup typer
 	- Popup qui se déplace
+	- Récupération popup random
+	- Passe sur popup précédente quand la plus récente est supprimée
+	- Intégrer différentes popup pubs (3 random)
+	- Intégrer asset popup typer
+	- Condition défaite

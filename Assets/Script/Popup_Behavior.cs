@@ -19,6 +19,7 @@ public class Popup_Behavior : MonoBehaviour {
         }
 
         if(isActive && isFinished) {
+            god.removePopup(this.gameObject);
             Destroy(this.gameObject);
         }
 	}
