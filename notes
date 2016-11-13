@@ -1,8 +1,10 @@
 TODO :
-	- Simuler dégradation site quand il y a de + en + de popups
+	- Intégrer barre SWP
+	- Intégrer effet clic sur bouton refresh
+	- Condition de défaite sur barre de refresh
 	- Affichage image game over
-	- Condition victoire
 	- Temps de spwan changeant suivant la popup qui vient d'arriver
+	- Condition victoire
 
 DONE !
 	- Popup typer
@@ -12,3 +14,6 @@ DONE !
 	- Intégrer différentes popup pubs (3 random)
 	- Intégrer asset popup typer
 	- Condition défaite
+	- Simuler dégradation site quand il y a de + en + de popups
+	- Intégrer fenêtre HTOP
+	- Intégrer bouton de refresh

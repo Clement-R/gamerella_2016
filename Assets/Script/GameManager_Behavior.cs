@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager_Behavior : MonoBehaviour {
     public float timeBetweenRefreshPick = 1.5f;
+    public int maxRefreshLevel = 22;
     public Sprite[] refreshSprites;
-    
+    public int refreshLevel = 0;
+
     private bool gameOver = false;
-	private int refreshLevel = 0;
 
     void Start() {
         StartCoroutine("increaseRefresh");
@@ -21,11 +22,28 @@ public class GameManager_Behavior : MonoBehaviour {
 
     IEnumerator increaseRefresh() {
         yield return new WaitForSeconds(timeBetweenRefreshPick);
-        GetComponent<SpriteRenderer>().sprite = refreshSprites[refreshLevel];
-        StartCoroutine("increaseRefresh");
+        refreshLevel++;
+
+        if (refreshLevel + 1 < maxRefreshLevel) {
+            // Display different version of website according to refresh level
+            if (refreshLevel >= 0 && refreshLevel <= 7) {
+                GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = refreshSprites[0];
+            } else if (refreshLevel > 7 && refreshLevel < 12) {
+                GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = refreshSprites[1];
+            } else if (refreshLevel > 12 && refreshLevel < 17) {
+                GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = refreshSprites[2];
+            } else if (refreshLevel > 17 && refreshLevel <= 22) {
+                GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = refreshSprites[3];
+            }
+            
+            StartCoroutine("increaseRefresh");
+        } else {
+            this.GameOver();
+        }
     }
 
     public void GameOver() {
+        Debug.Log("GAME OVER");
         this.gameOver = true;
         Time.timeScale = 0;
         // TODO : Dispaly game over image
@@ -33,6 +51,6 @@ public class GameManager_Behavior : MonoBehaviour {
 
     public void resetRefresh() {
         refreshLevel = 0;
-        GetComponent<SpriteRenderer>().sprite = refreshSprites[refreshLevel];
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = refreshSprites[refreshLevel];
     }
 }
