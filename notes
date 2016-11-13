@@ -1,7 +1,15 @@
 TODO :
-	- Affichage image game over
-	- Temps de spwan changeant suivant la popup qui vient d'arriver
-	- Timer
+	- Intégrer tuto
+	- Intégrer image game over
+	- Intégrer écran accueil
+	- Intégrer loop finale
+	- Intégrer son ambiance
+	- Intégrer jingle fin
+	
+	- Intégrer nouvelle fenêtre patch
+
+	- Timer pour afficher le score à la fin
+	- Affichage score à la fin
 
 DONE !
 	- Popup typer
@@ -17,3 +25,5 @@ DONE !
 	- Intégrer barre SWP
 	- Condition de défaite sur barre de refresh
 	- Intégrer effet clic sur bouton refresh
+	- Temps de spwan changeant suivant le nombre de popup détruite
+	- Limiter le random du déplacement des fenêtres de pubs

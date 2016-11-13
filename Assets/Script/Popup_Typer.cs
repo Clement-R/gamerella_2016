@@ -18,7 +18,7 @@ public class Popup_Typer : MonoBehaviour {
 	
 	void Update () {
         if(behavior.isActive) {
-            if (Input.anyKeyDown) {
+            if (Input.anyKeyDown && Time.timeScale == 1) {
                 if(!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) {
                     text.text = text.text + fakeCode[textIndex];
                     if (textIndex + 1 < fakeCode.Length) {
