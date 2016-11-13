@@ -1,10 +1,7 @@
 TODO :
-	- Intégrer barre SWP
-	- Intégrer effet clic sur bouton refresh
-	- Condition de défaite sur barre de refresh
 	- Affichage image game over
 	- Temps de spwan changeant suivant la popup qui vient d'arriver
-	- Condition victoire
+	- Timer
 
 DONE !
 	- Popup typer
@@ -17,3 +14,6 @@ DONE !
 	- Simuler dégradation site quand il y a de + en + de popups
 	- Intégrer fenêtre HTOP
 	- Intégrer bouton de refresh
+	- Intégrer barre SWP
+	- Condition de défaite sur barre de refresh
+	- Intégrer effet clic sur bouton refresh

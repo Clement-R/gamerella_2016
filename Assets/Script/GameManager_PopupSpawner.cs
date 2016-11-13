@@ -15,6 +15,7 @@ public class GameManager_PopupSpawner : MonoBehaviour {
     // BEST HACK EU
     private int z = -5;
     private GameManager_Behavior behavior;
+    private int numberOfPopupDone = 0;
 
     void Start () {
         Time.timeScale = 1;
@@ -63,6 +64,31 @@ public class GameManager_PopupSpawner : MonoBehaviour {
         openPopups.Remove(popup);
         if(openPopups.Count - 1 >= 0) {
             activePopup = openPopups[openPopups.Count - 1].GetInstanceID();
+        }
+
+        numberOfPopupDone++;
+        this.increaseDifficulty();
+    }
+
+    void increaseDifficulty() {
+        if(numberOfPopupDone == 3) {
+            // 9
+            timeBetweenSpawn--;
+        } else if(numberOfPopupDone == 7) { // +4
+            // 8
+            timeBetweenSpawn--;
+        } else if (numberOfPopupDone == 12) { // +5
+            // 7
+            timeBetweenSpawn--;
+        } else if (numberOfPopupDone == 18) { // +6
+            // 6
+            timeBetweenSpawn--;
+        } else if (numberOfPopupDone == 25) { // +7
+            // 5
+            timeBetweenSpawn--;
+        } else if (numberOfPopupDone == 33) { // +8
+            // 4
+            timeBetweenSpawn--;
         }
     }
 }

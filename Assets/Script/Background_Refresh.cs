@@ -11,9 +11,15 @@ public class Background_Refresh : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        if(god.popupOnScreen == false) {
-            Debug.Log("REFRESH");
+        if(god.popupOnScreen == false && Time.timeScale == 1) {
             behavior.resetRefresh();
+            StartCoroutine("displayButton");
         }
+    }
+
+    IEnumerator displayButton() {
+        transform.FindChild("refresh_button_clicked").gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        transform.FindChild("refresh_button_clicked").gameObject.SetActive(false);
     }
 }
