@@ -28,9 +28,6 @@ public class Popup_Moving : MonoBehaviour {
         float width = GetComponent<Renderer>().bounds.size.x;
         float height = GetComponent<Renderer>().bounds.size.y;
 
-        Debug.Log(height);
-        Debug.Log(width);
-
         float x = 0.0f;
         float y = 0.0f;
 
@@ -47,7 +44,6 @@ public class Popup_Moving : MonoBehaviour {
         }
 
         this.transform.position = new Vector3(x, y, this.transform.position.z);
-        Debug.Log(x + " : " + y);
         this.firstMove = false;
     }
 }

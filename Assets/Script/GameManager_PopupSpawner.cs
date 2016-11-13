@@ -12,18 +12,34 @@ public class GameManager_PopupSpawner : MonoBehaviour {
     public bool popupOnScreen = false;
     
     private List<GameObject> openPopups = new List<GameObject>();
+    private GameObject tuto1;
+    private GameObject tuto2;
     // BEST HACK EU
     private int z = -5;
     private GameManager_Behavior behavior;
     private int numberOfPopupDone = 0;
+    private bool gameLaunched = false;
+    private bool tutorialOver = false;
 
     void Start () {
         Time.timeScale = 1;
         behavior = GetComponent<GameManager_Behavior>();
-        StartCoroutine("StartGame");
-	}
+        tuto1 = GameObject.Find("tuto");
+        tuto1 = GameObject.Find("tuto2");
+    }
 
     void Update() {
+        if(!tutorialOver) {
+            if(tuto1 == null && tuto2 == null) {
+                tutorialOver = true;
+            }
+        }
+
+        if(!gameLaunched && tutorialOver) {
+            gameLaunched = true;
+            StartCoroutine("StartGame");
+        }
+
         if(maxPopup == openPopups.Count) {
             behavior.GameOver();
         }

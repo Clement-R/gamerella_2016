@@ -43,10 +43,13 @@ public class GameManager_Behavior : MonoBehaviour {
     }
 
     public void GameOver() {
-        Debug.Log("GAME OVER");
         this.gameOver = true;
         Time.timeScale = 0;
-        // TODO : Dispaly game over image
+        
+        // Display gameover !
+        GameObject.Find("bleuscreen").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("bleuscreen").GetComponentInChildren<MeshRenderer>().enabled = true;
+        GameObject.Find("bleuscreen").GetComponentInChildren<TextMesh>().text = "Score : " + (int) Time.timeSinceLevelLoad * 100;
     }
 
     public void resetRefresh() {
